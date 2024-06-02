@@ -146,7 +146,7 @@ TypeScript
 
 Interact with the Contract:
 1. Update the CONTRACT_ADDRESS in /deploy/interact.ts:
-   
+```   
 TypeScript
 
    import * as hre from "hardhat";
@@ -166,7 +166,8 @@ TypeScript
      await transaction.wait();
      console.log(`The message now is: ${await contract.greet()}`);
    }
-   
+```   
+
 2. Run the interaction script with yarn interact.
 
 
