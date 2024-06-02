@@ -96,7 +96,7 @@ You can get ETH directly into zkSync testnet following this link: https://faucet
 4. Deploy and Verify:
 1. Use the deployment script in /deploy/deploy.ts:
 
-`   
+```   
 TypeScript
 
    import { deployContract } from "./utils";
@@ -106,7 +106,7 @@ TypeScript
      const constructorArguments = ["Hi there!"];
      await deployContract(contractArtifactName, constructorArguments);
  }
-`
+```
 
 2. Run the deployment script with yarn deploy.
 3. The script will deploy the contract and verify it, providing details like the contract address and verification ID.
@@ -114,7 +114,7 @@ TypeScript
 Interact with the Contract:
 1. Update the CONTRACT_ADDRESS in /deploy/interact.ts:
 
-`  
+```  
 TypeScript
 
    import * as hre from "hardhat";
@@ -134,7 +134,7 @@ TypeScript
      await transaction.wait();
      console.log(`The message now is: ${await contract.greet()}`);
    }
-`  
+```  
 
 2. Run the interaction script with `npm run interact` interact.
 
