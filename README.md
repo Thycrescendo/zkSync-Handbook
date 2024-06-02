@@ -71,7 +71,7 @@ We will walk you through the process of deploying and utilising a smart contract
 
 1. Fund your wallet:
 
-You can get ETH directly into zkSync testnet following this link: https://faucet.chainstack.com/zksync-testnet-faucet or by getting sepoliaETH from the faucets: https://docs.zksync.io/build/tooling/network-faucets.html and bridging it using: https://portal.zksync.io/bridge/?network=sepolia. Feel free to check your balance here https://sepolia.explorer.zksync.io
+You can get ETH directly into zkSync testnet by using ![faucet by chainstack](https://faucet.chainstack.com/zksync-testnet-faucet) or by getting sepoliaETH from the faucets: ![get sepoliaEth](https://docs.zksync.io/build/tooling/network-faucets.html) and bridging it using: ![zkSync Bridge](https://portal.zksync.io/bridge/?network=sepolia) Feel free to check your balance here ![zkSync sepolia Explorer](https://sepolia.explorer.zksync.io)
 
 2. Create the Project:
 
@@ -139,7 +139,8 @@ TypeScript
 2. Run the interaction script with `npm run interact` interact.
 
 
-What we learned
+## What we learned
+
 What zkSync Does: It's a tool that makes Ethereum faster and cheaper by processing transactions differently.
 
 Improvements to Ethereum: zkSync speeds up transactions, reduces costs, and maintains Ethereum's security.
