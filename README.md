@@ -70,11 +70,12 @@ Ethereum sometimes gets crowded and expensive when a lot of people are using it 
 We will walk you through the process of deploying and utilising a smart contract on zkSync in this tutorial. creating smart contracts, deploying them on zkSync, and configuring your development environment. This all-inclusive guide explains everything.
 
 1. Fund your wallet:
+
 You can get ETH directly into zkSync testnet following this link: https://faucet.chainstack.com/zksync-testnet-faucet or by getting sepoliaETH from the faucets: https://docs.zksync.io/build/tooling/network-faucets.html and bridging it using: https://portal.zksync.io/bridge/?network=sepolia. Feel free to check your balance here https://sepolia.explorer.zksync.io
 
 2. Create the Project:
 
-1. Run npx zksync-cli create hello-zksync to create a new project.
+1. Run `npx zksync-cli` create hello-zksync to create a new project.
 2. Choose the following options:
    - Project type: Contracts
    - Ethereum framework: Ethers v6
@@ -82,20 +83,20 @@ You can get ETH directly into zkSync testnet following this link: https://faucet
    - (Optional) Private key for deploying contracts
    - Package manager: yarn
 3. The project structure includes:
-   - hardhat.config.ts for general configuration.
+   - `hardhat.config.ts` for general configuration.
    - /contracts for smart contracts, including examples like ERC20, NFT, and Greeter.
    - /deploy for deployment scripts.
-4. Focus on the Greeter.sol contract in /contracts.
+4. Focus on the `Greeter.sol` contract in /contracts.
 
 3. Compile the Contract:
 1. Navigate to the project directory: cd hello-zksync.
-2. Compile the contracts with yarn compile.
+2. Compile the contracts with `npm run` compile.
 3. The output will show the compiled artifacts in the /artifacts-zk folder.
 
 4. Deploy and Verify:
 1. Use the deployment script in /deploy/deploy.ts:
 
-```   
+`   
 TypeScript
 
    import { deployContract } from "./utils";
@@ -104,14 +105,16 @@ TypeScript
      const contractArtifactName = "Greeter";
      const constructorArguments = ["Hi there!"];
      await deployContract(contractArtifactName, constructorArguments);
-   }
-```
+ }
+`
+
 2. Run the deployment script with yarn deploy.
 3. The script will deploy the contract and verify it, providing details like the contract address and verification ID.
 
 Interact with the Contract:
 1. Update the CONTRACT_ADDRESS in /deploy/interact.ts:
-```   
+
+`  
 TypeScript
 
    import * as hre from "hardhat";
@@ -131,9 +134,9 @@ TypeScript
      await transaction.wait();
      console.log(`The message now is: ${await contract.greet()}`);
    }
-```   
+`  
 
-2. Run the interaction script with yarn interact.
+2. Run the interaction script with `npm run interact` interact.
 
 
 What we learned
