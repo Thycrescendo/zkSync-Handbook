@@ -69,13 +69,13 @@ Ethereum sometimes gets crowded and expensive when a lot of people are using it 
 
 We will walk you through the process of deploying and utilising a smart contract on zkSync in this tutorial. creating smart contracts, deploying them on zkSync, and configuring your development environment. This all-inclusive guide explains everything.
 
-1. Fund your wallet:
+#### Fund your wallet:
 
-You can get ETH directly into zkSync testnet by using ![faucet by chainstack](https://faucet.chainstack.com/zksync-testnet-faucet) or by getting sepoliaETH from the faucets: ![get sepoliaEth](https://docs.zksync.io/build/tooling/network-faucets.html) and bridging it using: ![zkSync Bridge](https://portal.zksync.io/bridge/?network=sepolia) Feel free to check your balance here ![zkSync sepolia Explorer](https://sepolia.explorer.zksync.io)
+You can get ETH directly into zkSync testnet by using [faucet by chainstack](https://faucet.chainstack.com/zksync-testnet-faucet) or by getting sepoliaETH from the faucets: [get sepoliaEth](https://docs.zksync.io/build/tooling/network-faucets.html) and bridging it using: [zkSync Bridge](https://portal.zksync.io/bridge/?network=sepolia) Feel free to check your balance here [zkSync sepolia Explorer](https://sepolia.explorer.zksync.io)
 
-2. Create the Project:
+#### Create the Project:
 
-1. Run `npx zksync-cli` create hello-zksync to create a new project.
+1. Run `npx zksync-cli create hello-zksync` to create a new project.
 2. Choose the following options:
    - Project type: Contracts
    - Ethereum framework: Ethers v6
@@ -84,14 +84,43 @@ You can get ETH directly into zkSync testnet by using ![faucet by chainstack](ht
    - Package manager: yarn
 3. The project structure includes:
    - `hardhat.config.ts` for general configuration.
-   - /contracts for smart contracts, including examples like ERC20, NFT, and Greeter.
-   - /deploy for deployment scripts.
-4. Focus on the `Greeter.sol` contract in /contracts.
+   - `/contracts` for smart contracts, including examples like ERC20, NFT, and Greeter.
+   - `/deploy` for deployment scripts.
+4. A core part of this guide is `Greeter.sol` contract in `/contracts`.
 
-3. Compile the Contract:
-1. Navigate to the project directory: cd hello-zksync.
-2. Compile the contracts with `npm run` compile.
-3. The output will show the compiled artifacts in the /artifacts-zk folder.
+```
+// SPDX-License-Identifier: Unlicense
+pragma solidity ^0.8.0;
+
+contract Greeter {
+    string private greeting;
+
+    // Event to be emitted when the greeting is changed
+    event GreetingChanged(string newGreeting);
+
+    // Constructor to initialize the greeting
+    constructor(string memory _greeting) {
+        setGreeting(_greeting);
+    }
+
+    // Function to get the current greeting
+    function greet() external view returns (string memory) {
+        return greeting;
+    }
+
+    // Function to set a new greeting
+    function setGreeting(string memory _greeting) public {
+        greeting = _greeting;
+        emit GreetingChanged(_greeting);
+    }
+}
+
+```
+#### Compile the Contract:
+
+1. Navigate to the project directory: `cd hello-zksync`.
+2. Compile the contracts with `npm run compile`.
+3. The output will show the compiled artifacts in the `/artifacts-zk` folder.
 
 4. Deploy and Verify:
 1. Use the deployment script in /deploy/deploy.ts:
@@ -112,7 +141,7 @@ TypeScript
 3. The script will deploy the contract and verify it, providing details like the contract address and verification ID.
 
 Interact with the Contract:
-1. Update the CONTRACT_ADDRESS in /deploy/interact.ts:
+1. Update the CONTRACT_ADDRESS in `/deploy/interact.ts`:
 
 ```  
 TypeScript
@@ -138,23 +167,4 @@ TypeScript
 
 2. Run the interaction script with `npm run interact` interact.
 
-
-## What we learned
-
-What zkSync Does: It's a tool that makes Ethereum faster and cheaper by processing transactions differently.
-
-Improvements to Ethereum: zkSync speeds up transactions, reduces costs, and maintains Ethereum's security.
-
-We've also had a better grasp of what zkSync is and how to build, deploy and interact with a deployed contract 
-
-
-
-What's next 
-
-
-In the Next wave I'll be talking about a more advanced level in using zkSync to defeat the plagues that Afflicts Ethereum Developers
-Chainstack
-zkSync Faucet - Get Free zkSync Testnet ETH
-
-Get free zkSync testnet tokens from Chainstack's faucet. Sign up and get free zkSync testnet ETH tokens.
-
+Afterwards, you'll get messages saying: Hi there! and the time it took. That's how you build, deploy and interact with a smart contract on zkSync. 
